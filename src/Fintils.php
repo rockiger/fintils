@@ -68,6 +68,11 @@ class Fintils {
     $∑X² = array_sum(array_map(fn (float $x) => $x * $x, $X));
     $∑Y² = array_sum(array_map(fn (float $y) => $y * $y, $Y));
     $√ = sqrt($∑X² * $∑Y²);
-    return $∑XY / $√;
+
+    try {
+      return $∑XY / $√;
+    } catch (\Throwable $th) {
+      return 0;
+    }
   }
 }
